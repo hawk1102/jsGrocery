@@ -1,0 +1,126 @@
+/*SASS是一种CSS的开发工具，提供了许多便利的写法，大大节省了设计者的时间，使得CSS的开发，变得简单和可维护*/
+
+/*SASS文件就是普通的文本文件，里面可以直接使用CSS语法。文件后缀名是.scss，意思为Sassy CSS。*/
+
+
+//变量
+$blue:#000000;
+$red:red;
+div {
+　color : $blue;
+}
+
+// 变量在名称中使用 
+
+$side:left;
+div{
+  padding-#{$side}:10px;
+}
+
+// 计算
+$h10:10px;
+div{
+  height:50+20%;
+  margin:(14px/2);
+  width:$h10 * 2;
+}
+
+//选择器嵌套
+div{
+  div1{
+    color:$blue;
+  }
+}
+
+// 属性嵌套
+p{
+  border:{
+    color:$red;
+  };
+}
+
+// 嵌套的代码块内，可以使用&引用父元素。比如a:hover伪类
+
+a{
+  color:$blue;
+  &:hover{
+    color:$red;
+  }
+}
+
+// 单行注释 ,只保留在SASS源文件中，编译后被省略
+/*标准的CSS注释 ，会保留到编译后的文件*/
+/*! 重要注释！ 即使是压缩模式编译，也会保留这行注释，通常可以用于声明版权信息*/
+
+
+/*! 代码复用 */
+/* 继承 */
+.class1{
+  padding:20px;
+  margin:30px;
+}
+.class2{
+  @extend .class1;
+  font-size:16px;
+}
+
+/* Mixin代码块, 有点像C语言的宏（macro），可以重用*/
+@mixin mixin1 {
+  float:left;
+  margin-right:10px;
+}
+@mixin mixin2($val : 10px){
+  float:left;
+  margin-right:$val;
+}
+.div-mixin1{
+  @include mixin1;
+}
+.div-mixin2{
+  @include mixin2(20px);
+}
+
+/* SASS提供了一些内置的颜色函数，以便生成系列颜色*/
+
+  // lighten(#cc3, 10%), // #d6d65c
+  // darken(#cc3, 10%), // #a3a329
+  // grayscale(#cc3), // #808080
+  // complement(#cc3)} //// #33c
+
+/*! @import命令，用来插入外部文件。*/
+@import "css/index.css";
+
+
+/*! 高级用法*/
+//if
+p{
+  @if (1+2==4) {
+    color:red;
+  }@else{
+    color:blue;
+  }
+}
+//for
+.for-ex{
+  @for $i from 1 to 10 {
+    .item#{$i}{
+      color:$blue;
+    }
+  }
+}
+//each
+@each $animal in puma, sea-slug, egret, salamander {
+  .#{$animal}-icon {
+    background-image: url('/images/#{$animal}.png');
+  }
+}
+
+/*! 自定义函数*/
+
+@function fun3($val){
+  @return $val * 2 px;
+}
+
+.func-ex{
+  padding:fun3(10);
+}

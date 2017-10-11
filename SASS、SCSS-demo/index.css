@@ -1,0 +1,112 @@
+@charset "UTF-8";
+/*SASS是一种CSS的开发工具，提供了许多便利的写法，大大节省了设计者的时间，使得CSS的开发，变得简单和可维护*/
+/*SASS文件就是普通的文本文件，里面可以直接使用CSS语法。文件后缀名是.scss，意思为Sassy CSS。*/
+@import url(css/index.css);
+div {
+  　color: #000000;
+}
+
+div {
+  padding-left: 10px;
+}
+
+div {
+  height: 70%;
+  margin: 7px;
+  width: 20px;
+}
+
+div div1 {
+  color: #000000;
+}
+
+p {
+  border-color: red;
+}
+
+a {
+  color: #000000;
+}
+a:hover {
+  color: red;
+}
+
+/*标准的CSS注释 ，会保留到编译后的文件*/
+/*! 重要注释！ 即使是压缩模式编译，也会保留这行注释，通常可以用于声明版权信息*/
+/*! 代码复用 */
+/* 继承 */
+.class1, .class2 {
+  padding: 20px;
+  margin: 30px;
+}
+
+.class2 {
+  font-size: 16px;
+}
+
+/* Mixin代码块, 有点像C语言的宏（macro），可以重用*/
+.div-mixin1 {
+  float: left;
+  margin-right: 10px;
+}
+
+.div-mixin2 {
+  float: left;
+  margin-right: 20px;
+}
+
+/* SASS提供了一些内置的颜色函数，以便生成系列颜色*/
+/*! @import命令，用来插入外部文件。*/
+/*! 高级用法*/
+p {
+  color: blue;
+}
+
+.for-ex .item1 {
+  color: #000000;
+}
+.for-ex .item2 {
+  color: #000000;
+}
+.for-ex .item3 {
+  color: #000000;
+}
+.for-ex .item4 {
+  color: #000000;
+}
+.for-ex .item5 {
+  color: #000000;
+}
+.for-ex .item6 {
+  color: #000000;
+}
+.for-ex .item7 {
+  color: #000000;
+}
+.for-ex .item8 {
+  color: #000000;
+}
+.for-ex .item9 {
+  color: #000000;
+}
+
+.puma-icon {
+  background-image: url("/images/puma.png");
+}
+
+.sea-slug-icon {
+  background-image: url("/images/sea-slug.png");
+}
+
+.egret-icon {
+  background-image: url("/images/egret.png");
+}
+
+.salamander-icon {
+  background-image: url("/images/salamander.png");
+}
+
+/*! 自定义函数*/
+.func-ex {
+  padding: 20 px;
+}
